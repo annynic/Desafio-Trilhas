@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="main.js" defer></script>
+    <title>Formulário</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/Ilustration.png" alt="Ilustração de inscrição">
+        </div>
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <div class="voltar-botao">
+                            <button type="button" onclick="window.location.href='#'">
+                                <i class="fa-solid fa-arrow-left"></i> Voltar                        </div>
+                        <h1>Formulário de inscrição</h1>
+                        <p>Preencha os dados abaixo para fazer sua inscrição no Programa Trilhas.</p>
+                    </div>
+                </div>
+                <div class="title-form">
+                    <h2>Informações do participante</h2>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome-completo">Nome completo</label>
+                        <input id="nome-completo" type="text" name="nome-completo" placeholder="Digite seu nome completo">
+                    </div>
+                     <div class="input-box">
+                        <label for="data-nascimento">Data de nascimento</label>
+                        <input id="data-nascimento" type="date" name="data-nascimento">
+                    </div>
+                    <div class="input-box">
+                        <label for="cpf">CPF</label>
+                        <input id="cpf" type="text" name="cpf" placeholder="012.345.678-91" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" autocomplete="off">
+                    </div>
+                    <div class="input-box">
+                        <label for="genero">Sexo</label>
+                        <select class="genero" id="genero">
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label class="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" autocomplete="email">                        
+                        <span class="error-message">Insira um e-mail válido</span>
+                    </div>
+                    <div class="input-box">
+                        <label for="telefone">Telefone</label>
+                        <input id="telefone" type="tel" name="telefone" placeholder="ex.: (00) 00000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" autocomplete="tel">
+                    </div>
+                    <div class="documento">Documento de identidade
+                        <label for="identidade" class="arquivo-texto"><img src="assets/cloud-upload.png">Clique aqui para selecionar o arquivo</label>
+                        <input id="identidade" type="file" name="identidade">
+                    </div>
+                </div>
+                <div class="botoes">
+                    <div class="save-button">
+                        <button type="button" id="btn">Salvar informações</button>
+                    </div>                
+                    <div class="continue-button"> 
+                        <button type="submit">Próximo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>  
+</body>
+</html>

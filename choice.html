@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Escolha da trilha</title>
+    <script src="./login.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/Ilustration.png" alt="Ilustração de inscrição">
+        </div>
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <div class="voltar-botao">
+                            <button type="button" onclick="window.location.href='./address.html'">
+                              <i class="fa-solid fa-arrow-left"></i> Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-form">
+                    <h2>Trilhas de apredizagem</h2>
+                    <p>Selecione apenas uma trilha</p>
+                </div>
+                    <div class="choice-group">
+                        <div class="choice-input">
+                            <input id="frontend" type="radio" name="frontend">
+                            <label for="frontend"> <img src="./assets/icon-front.png" alt="">Programação Front-end</label>
+                        </div>
+
+                        <div class="choice-input">
+                            <input id="backend" type="radio" name="backend">
+                            <label for="backend"> <img src="./assets/icon-back.png" alt="">Programação Back-end</label>
+                        </div>
+
+                        <div class="choice-input">
+                            <input id="games" type="radio" name="games">
+                            <label for="games"><img src="./assets/icon-jogos.png" alt="">Programação de Jogos</label>
+                        </div>
+
+                        <div class="choice-input">
+                            <input id="desigh" type="radio" name="desigh">
+                            <label for="desigh"><img src="./assets/icon-ux.png" alt="">Desigh e Experiência</label>
+                        </div>
+                        
+                        <div class="choice-input">
+                            <input id="dados" type="radio" name="dados">
+                            <label for="dados"><img src="./assets/icon-dados.png" alt="">Ciência de Dados </label>
+                        </div>
+                    </div>
+                        <div class="termos">
+                            <input id="termos" type="radio" name="termos">
+                            <label for="termos">Declaro que li e concordo com os <strong>Termos e Condições</strong> e com a <strong>Política de Privacidade.</strong></label>
+                        </div>
+                        <div class="input-box-dois">
+                            <label for="usuario-id">ID do Usuário</label>
+                            <input id="usuario-id" type="text" placeholder="Crie um ID para login" required />
+                          </div>
+                          
+                          <div class="input-box-dois">
+                            <label for="usuario-senha">Senha</label>
+                            <input id="usuario-senha" type="password" placeholder="Crie uma senha" required />
+                        </div>
+                        <div class="botoes">
+                            <div class="save-button">
+                                <button type="button" id="btn-salvar-manual">Salvar informações</button>
+                            </div> 
+                            <div class="inscricao-button">
+                                <button type="button" onclick="finalizarInscricao()">Fazer inscrição</button>
+                            </div>
+                            <div class="cancel-button">
+                                <button type="button" onclick="window.location.href='./index.html'">Cancelar</button>
+                            </div>
+                        </div>
+            </form>
+        </div>
+    </div>  
+</body>
+</html>

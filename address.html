@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./main.js" defer></script>
+    <title>Endereço</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/Ilustration.png" alt="Ilustração de inscrição">
+        </div>
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <div class="voltar-botao">
+                            <button type="button" onclick="window.location.href='./index.html'">
+                                <i class="fa-solid fa-arrow-left"></i> Voltar                        </div>
+                    </div>
+                </div>
+                <div class="title-form">
+                    <h2>Endereço residencial</h2>
+                </div>
+                <div class="input-group-dois">
+                    <div class="input-box-dois">
+                        <label for="cep">CEP</label>
+                        <input id="cep" type="text" name="cep" placeholder="Ex.:01234-567">
+                    </div>
+                     <div class="input-box-dois">
+                        <label for="rua">Rua</label>
+                        <input id="rua" type="text" name="rua" placeholder="Rua 1">
+                    </div>
+                    <div class="input-box-dois">
+                        <label for="cidade">Cidade</label>
+                        <input id="cidade" type="text" name="cidade" placeholder="São Luís">
+                    </div>
+                    <div class="input-box-dois">
+                        <label for="numero">Número</label>
+                        <input id="numero" type="number" name="numero" placeholder="01">
+                    </div>
+                    <div class="input-box-dois">
+                        <label for="estado">Estado</label>
+                        <input id="estado" type="text" name="estado" placeholder="MA">
+                    </div>
+                    <div class="documento">Comprovante de residência
+                        <label for="comprovante" class="arquivo-texto"><img src="assets/cloud-upload.png">Clique aqui para selecionar o arquivo </label>
+                        <input id="comprovante" type="file" name="comprovante">
+                    </div>
+                </div>
+                <div class="botoes">
+                    <div class="save-button">
+                        <button type="button" id="btn-salvar-manual">Salvar informações</button>
+                    </div> 
+                    <div class="continue-button"> 
+                        <button type="button" id="btn-proximo-endereco">Próximo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>  
+</body>
+</html>

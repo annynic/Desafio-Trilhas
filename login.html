@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./styles/style.css"/>
+  <script src="./login.js" defer></script>
+  <title>Login</title>
+</head>
+<body>
+  <div class="container">
+    <div class="form-image">
+      <img src="assets/Ilustration.png" alt="Login Ilustração" />
+    </div>
+    <div class="form">
+      <form id="login-form">
+        <div class="form-header">
+          <div class="title">
+            <div class="voltar-botao">
+              <button type="button" onclick="window.location.href='./choice.html'">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
+              </button>
+            </div>
+            <h1>Login</h1>
+            <p>Digite seu ID e senha para acessar.</p>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-box">
+            <label for="login-id">ID do usuário</label>
+            <input id="login-id" type="text" placeholder="Digite seu ID" required />
+          </div>
+
+          <div class="input-box">
+            <label for="login-senha">Senha</label>
+            <input id="login-senha" type="password" placeholder="Digite sua senha" required />
+          </div>
+        </div>
+
+        <div class="continue-button">
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
