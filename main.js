@@ -166,108 +166,108 @@ document.addEventListener("DOMContentLoaded", () => {
       estado.value = dadosSalvos.estado || "";
     }
   }
-});
 
-if (path.includes("choice.html")) {
-  const trilhas = document.querySelectorAll(".choice-input input[type='radio']");
-  const termos = document.getElementById("termos");
-  const idInput = document.getElementById("usuario-id");
-  const senhaInput = document.getElementById("usuario-senha");
-  const btnSalvar = document.getElementById("btn-salvar-manual");
-  const btnFinalizar = document.querySelector(".inscricao-button button");
+  if (path.includes("choice.html")) {
+    const trilhas = document.querySelectorAll(".choice-input input[type='radio']");
+    const termos = document.getElementById("termos");
+    const idInput = document.getElementById("usuario-id");
+    const senhaInput = document.getElementById("usuario-senha");
+    const btnSalvar = document.getElementById("btn-salvar-manual");
+    const btnFinalizar = document.querySelector(".inscricao-button button");
 
-  function mostrarErro(input, mensagem) {
-    removerErro(input);
-    const erro = document.createElement("small");
-    erro.className = "erro";
-    erro.style.color = "red";
-    erro.innerText = mensagem;
-    input.parentElement.appendChild(erro);
-    input.classList.add("input-invalido");
-  }
+    function mostrarErro(input, mensagem) {
+      removerErro(input);
+      const erro = document.createElement("small");
+      erro.className = "erro";
+      erro.style.color = "red";
+      erro.innerText = mensagem;
+      input.parentElement.appendChild(erro);
+      input.classList.add("input-invalido");
+    }
 
-  function removerErro(input) {
-    const erro = input.parentElement.querySelector(".erro");
-    if (erro) erro.remove();
-    input.classList.remove("input-invalido");
-  }
+    function removerErro(input) {
+      const erro = input.parentElement.querySelector(".erro");
+      if (erro) erro.remove();
+      input.classList.remove("input-invalido");
+    }
 
-  function validarEscolha() {
-    let trilhaEscolhida = "";
-    trilhas.forEach((trilha) => {
-      if (trilha.checked) {
-        trilhaEscolhida = trilha.id;
+    function validarEscolha() {
+      let trilhaEscolhida = "";
+      trilhas.forEach((trilha) => {
+        if (trilha.checked) {
+          trilhaEscolhida = trilha.id;
+        }
+      });
+
+      if (!trilhaEscolhida) {
+        alert("Por favor, selecione uma trilha de aprendizagem.");
+        return null;
+      }
+
+      if (!termos.checked) {
+        alert("Você precisa aceitar os Termos e Condições.");
+        return null;
+      }
+
+      if (!idInput.value.trim()) {
+        mostrarErro(idInput, "ID é obrigatório.");
+        return null;
+      }
+
+      if (!senhaInput.value.trim()) {
+        mostrarErro(senhaInput, "Senha é obrigatória.");
+        return null;
+      }
+
+      removerErro(idInput);
+      removerErro(senhaInput);
+
+      return trilhaEscolhida;
+    }
+
+    function salvarDados() {
+      const trilha = validarEscolha();
+      if (!trilha) return false;
+
+      const dadosFinais = {
+        trilha: trilha,
+        termos: true,
+        idUsuario: idInput.value.trim(),
+        senhaUsuario: senhaInput.value.trim()
+      };
+
+      localStorage.setItem("dadosFinais", JSON.stringify(dadosFinais));
+
+      localStorage.setItem("credenciais", JSON.stringify({
+        id: dadosFinais.idUsuario,
+        senha: dadosFinais.senhaUsuario
+      }));
+
+      alert("Informações salvas com sucesso!");
+      return true;
+    }
+
+    btnSalvar.addEventListener("click", () => {
+      salvarDados();
+    });
+
+    btnFinalizar.addEventListener("click", () => {
+      const sucesso = salvarDados();
+      if (sucesso) {
+        alert("Inscrição finalizada com sucesso!");
+        window.location.href = "./login.html";
       }
     });
 
-    if (!trilhaEscolhida) {
-      alert("Por favor, selecione uma trilha de aprendizagem.");
-      return null;
+    const salvos = JSON.parse(localStorage.getItem("dadosFinais"));
+    if (salvos) {
+      if (salvos.trilha) {
+        const radio = document.getElementById(salvos.trilha);
+        if (radio) radio.checked = true;
+      }
+      termos.checked = salvos.termos || false;
+      idInput.value = salvos.idUsuario || "";
+      senhaInput.value = salvos.senhaUsuario || "";
     }
-
-    if (!termos.checked) {
-      alert("Você precisa aceitar os Termos e Condições.");
-      return null;
-    }
-
-    if (!idInput.value.trim()) {
-      mostrarErro(idInput, "ID é obrigatório.");
-      return null;
-    }
-
-    if (!senhaInput.value.trim()) {
-      mostrarErro(senhaInput, "Senha é obrigatória.");
-      return null;
-    }
-
-    removerErro(idInput);
-    removerErro(senhaInput);
-
-    return trilhaEscolhida;
   }
-
-  function salvarDados() {
-    const trilha = validarEscolha();
-    if (!trilha) return false;
-
-    const dadosFinais = {
-      trilha: trilha,
-      termos: true,
-      idUsuario: idInput.value.trim(),
-      senhaUsuario: senhaInput.value.trim()
-    };
-
-    localStorage.setItem("dadosFinais", JSON.stringify(dadosFinais));
-
-    localStorage.setItem("credenciais", JSON.stringify({
-      id: dadosFinais.idUsuario,
-      senha: dadosFinais.senhaUsuario
-    }));
-
-    alert("Informações salvas com sucesso!");
-    return true;
-  }
-
-  btnSalvar.addEventListener("click", () => {
-    salvarDados();
-  });
-
-  btnFinalizar.addEventListener("click", () => {
-    const sucesso = salvarDados();
-    if (sucesso) {
-      alert("Inscrição finalizada com sucesso!");
-      window.location.href = "./login.html";
-    }
-  });
-
-  const salvos = JSON.parse(localStorage.getItem("dadosFinais"));
-  if (salvos) {
-    if (salvos.trilha) {
-      const radio = document.getElementById(salvos.trilha);
-      if (radio) radio.checked = true;
-    }
-    termos.checked = salvos.termos || false;
-    idInput.value = salvos.idUsuario || "";
-    senhaInput.value = salvos.senhaUsuario || "";
-  }
-}
+});
